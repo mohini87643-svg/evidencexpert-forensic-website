@@ -282,6 +282,27 @@
         <a href="#hero" class="scroll-top-btn"><i class="fas fa-chevron-up"></i></a>
     </footer>
 
+    <!-- Floating Chatbot Widget -->
+    <div id="chatbot-widget">
+        <div id="chatbot-window">
+            <div class="chatbot-header">
+                <div class="chatbot-header-info">
+                    <i class="fas fa-robot"></i>
+                    <span>EvidenceXpert AI</span>
+                </div>
+                <button id="chatbot-close" aria-label="Close chat"><i class="fas fa-times"></i></button>
+            </div>
+            <iframe id="chatbot-iframe" src="about:blank"
+                data-src="https://www.chatbase.co/chatbot-iframe/SkD54Ix35gNS86Kko2JnL" width="100%" height="100%"
+                frameborder="0" allow="microphone"></iframe>
+        </div>
+        <button id="chatbot-toggle" aria-label="Open chat">
+            <span class="chat-icon"><i class="fas fa-comments"></i></span>
+            <span class="close-icon"><i class="fas fa-times"></i></span>
+            <span class="chat-pulse"></span>
+        </button>
+    </div>
+
     <script src="script.js"></script>
 </body>
 

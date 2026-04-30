@@ -158,4 +158,41 @@ document.addEventListener('DOMContentLoaded', () => {
             parallax.style.transform = `translateY(${offset * 0.1}px)`;
         }
     });
+
+    // ========================
+    // Chatbot Widget Logic
+    // ========================
+    const chatbotWidget = document.getElementById('chatbot-widget');
+    const chatbotToggle = document.getElementById('chatbot-toggle');
+    const chatbotClose = document.getElementById('chatbot-close');
+    const chatbotIframe = document.getElementById('chatbot-iframe');
+    let chatbotLoaded = false;
+
+    function toggleChatbot() {
+        const isOpen = chatbotWidget.classList.toggle('open');
+        // Lazy-load iframe on first open
+        if (isOpen && !chatbotLoaded) {
+            chatbotIframe.src = chatbotIframe.getAttribute('data-src');
+            chatbotLoaded = true;
+        }
+    }
+
+    if (chatbotToggle) {
+        chatbotToggle.addEventListener('click', toggleChatbot);
+    }
+
+    if (chatbotClose) {
+        chatbotClose.addEventListener('click', () => {
+            chatbotWidget.classList.remove('open');
+        });
+    }
+
+    // Close chatbot when clicking outside
+    document.addEventListener('click', (e) => {
+        if (chatbotWidget && chatbotWidget.classList.contains('open')) {
+            if (!chatbotWidget.contains(e.target)) {
+                chatbotWidget.classList.remove('open');
+            }
+        }
+    });
 });
